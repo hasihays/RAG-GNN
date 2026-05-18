@@ -191,7 +191,6 @@ If you use RAG-GNN in your research, please cite:
   month = June,
   pages = {100195}
 }
-}
 ```
 
 ## Funding
