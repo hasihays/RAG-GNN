@@ -1,9 +1,3 @@
----
-noteId: "4108c8004e2f11f1a2570378ad05fce2"
-tags: []
-
----
-
 # RAG-GNN: Integrating Retrieved Knowledge with Graph Neural Networks for Precision Medicine
 
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
