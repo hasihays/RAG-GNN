@@ -178,11 +178,19 @@ Evaluation on a cancer signaling network (379 proteins, 3,498 interactions, 14 f
 If you use RAG-GNN in your research, please cite:
 
 ```bibtex
-@article{hays2025rag,
-  title={RAG-GNN: Integrating Retrieved Knowledge with Graph Neural Networks for Precision Medicine},
-  author={Hays, Hasi and Richardson, William J.},
-  journal={Frontiers in Artificial Intelligence},
-  year={2025}
+@article{Hays2026,
+  title = {ECMSim: A high-performance interactive web application for real-time spatiotemporal simulation of cardiac ECM signaling and diffusion},
+  volume = {30},
+  ISSN = {2590-0285},
+  url = {http://dx.doi.org/10.1016/j.mbplus.2026.100195},
+  DOI = {10.1016/j.mbplus.2026.100195},
+  journal = {Matrix Biology Plus},
+  publisher = {Elsevier BV},
+  author = {Hays,  Hasi and Richardson,  William J.},
+  year = {2026},
+  month = June,
+  pages = {100195}
+}
 }
 ```
 
