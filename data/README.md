@@ -73,21 +73,16 @@ BRCA1,DNA repair,2
 ...
 ```
 
-## PubMed abstracts
+## Document corpus
 
-Retrieved from NCBI E-utilities API:
-- https://www.ncbi.nlm.nih.gov/books/NBK25501/
+The document corpus used in the paper is **NOT** retrieved from PubMed. Instead, it consists of 1,895 synthetic mechanistic-annotation templates generated programmatically from the 14 functional pathway categories.
 
-Example query:
-```python
-from Bio import Entrez
+Templates are defined inline in `examples/learnable_cancer_network.py` (see the `templates = {...}` dictionary). For each protein, a set of category-specific template strings is used to construct short documents describing the protein's hypothesized mechanistic role within its assigned functional category.
 
-Entrez.email = "your@email.com"
-handle = Entrez.esearch(db="pubmed", term="TP53 cancer")
-```
+This synthetic corpus enables controlled study of the contribution of retrieval augmentation independent of the quality of an external biomedical text encoder. A natural extension is to replace these templates with retrieved PubMed abstracts encoded via pretrained biomedical language models (BioBERT, PubMedBERT) — see the "Future directions" section of the paper.
 
 ## License
 
 - STRING data: CC BY 4.0
 - Cancer Gene Census: Academic use only
-- PubMed abstracts: Public domain
+- Synthetic mechanistic-annotation document corpus: MIT (same as repository)

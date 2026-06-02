@@ -1,17 +1,17 @@
-# RAG-GNN: Integrating Retrieved Knowledge with Graph Neural Networks for Precision Medicine
+# RAG-GNN: Retrieval-Augmented Graph Neural Networks for Protein Interaction Network Embeddings
 
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-A framework for integrating graph neural network representations with retrieval-augmented generation for biological network modeling and precision medicine applications.
+A framework for integrating graph neural network representations with retrieval-augmented generation for protein interaction network embeddings and biomedical network modeling.
 
 ## Overview
 
-RAG-GNN combines network topology encoding via graph neural networks with dynamically retrieved literature-derived knowledge to create embeddings that capture both structural and functional relationships in biological networks.
+RAG-GNN combines network topology encoding via graph neural networks with dynamically retrieved document features (TF-IDF over a corpus of mechanistic annotations) to create embeddings that capture both structural and functional relationships in biological networks.
 
 **Key features:**
 - GNN-based network topology encoding with message passing
-- Knowledge retrieval from biomedical corpora
+- Document retrieval from biomedical text corpora (TF-IDF or pretrained encoders)
 - Weighted fusion of structural and semantic information
 - End-to-end learnable model with gated fusion and curriculum training (PyTorch)
 - Comprehensive evaluation metrics for biological networks
@@ -121,7 +121,7 @@ encoder = GNNEncoder(
 node_embeddings = encoder.fit_transform(adj_matrix)
 ```
 
-### 2. Knowledge retriever
+### 2. Document retriever
 Retrieves relevant documents for each node based on semantic similarity:
 
 ```python
@@ -135,7 +135,7 @@ retrieved_docs = retriever.retrieve(node_embeddings, document_corpus)
 ```
 
 ### 3. Fusion module
-Combines GNN embeddings with retrieved knowledge:
+Combines GNN embeddings with retrieved document features:
 
 ```python
 from rag_gnn import FusionModule
@@ -165,7 +165,7 @@ Evaluation on a cancer signaling network (379 proteins, 3,498 interactions, 14 f
 | GAT | -0.063 +/- 0.006 | 0.196 +/- 0.020 | 0.036 +/- 0.009 | 0.806 +/- 0.013 |
 | GraphSAGE | -0.019 +/- 0.002 | 0.105 +/- 0.008 | 0.003 +/- 0.002 | 0.556 +/- 0.020 |
 
-**Key finding:** RAG-GNN achieves the highest ARI for functional clustering and the best link prediction AUROC among learnable methods, demonstrating that knowledge retrieval provides complementary signal to network topology.
+**Key finding:** RAG-GNN achieves the highest ARI for functional clustering and competitive link prediction AUROC among learnable methods, demonstrating that document retrieval provides complementary signal to network topology. Information decomposition shows topology and retrieval encode 95.6% shared functional information, with retrieval providing a small but consistent improvement in functional clustering.
 
 ## Citation
 
@@ -173,7 +173,7 @@ If you use RAG-GNN in your research, please cite:
 
 ```bibtex
 @article{hays2025rag,
-  title={RAG-GNN: Integrating Retrieved Knowledge with Graph Neural Networks for Precision Medicine},
+  title={RAG-GNN: Retrieval-Augmented Graph Neural Networks for Protein Interaction Network Embeddings},
   author={Hays, Hasi and Richardson, William J.},
   journal={Frontiers in Artificial Intelligence},
   year={2025}
